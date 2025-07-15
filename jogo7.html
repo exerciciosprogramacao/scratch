@@ -8,9 +8,9 @@
   <link rel="icon" type="image/png" href="./img/logo0remov.png">
 </head>
 <body>
-    <div class="btt">
-        <button class="avancar" onclick="toggleDarkMode()">👓</button>
-      </div>
+  <div class="btt">
+    <button class="avancar" onclick="toggleDarkMode()">👓</button>
+  </div>
   <h1 class="tit">📘 Documentação do Projeto - Dont get Crushed</h1>
   <div class="image">
     <iframe src="https://scratch.mit.edu/projects/1197008919/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
@@ -20,6 +20,75 @@
     <pre>
         <a href="./sprites/sprites jogo 7.zip">Clique Aqui para baixar os sprites do jogo</a>
     </pre>    
+  </div>
+
+  <div class="bloco">
+    <h2>p1 idle</h2>
+  </div>
+  <pre>
+    quando [bandeira verde v] for clicado
+    vá para x: (-36) y: (-86)
+    sempre
+      próxima fantasia
+      vá para [p1 run]
+      aponte para a direção (direção p1)
+      se <(tecla [d] pressionada?) ou <(tecla [a] pressionada?)> então
+        esconda
+      senão
+        mostre
+      fim
+      se <tocando em [inimigo]> então
+        esconda
+        transmita [p2 win]
+        pare [todos]
+      fim
+    fim
+  </pre>
+  <p class="explicacao">👉 O personagem P1 idle é o personagem que fica parado, mas com a animação de respiração.</p>
+  <p class="explicacao">👉 Ele sempre está na posição inicial, que é a posição de respiração.</p>
+  <p class="explicacao">👉 Ele só fica visível quando não está se movendo.</p>
+  <p class="explicacao">👉 Se ele tocar no inimigo, ele se esconde e transmite a mensagem de que o P2 ganhou.</p>
+  <div class="bloco">
+    <h2>p1 run</h2>
+    <pre>
+      quando [bandeira verde] for clicado
+      vá para x: (-36) y: (-86)
+      sempre
+        próxima fantasia
+        aponte para a direção (direção p1)
+        se <(tecla [d] pressionada?) ou <(tecla [a] pressionada?)> então
+          mostre
+        senão
+          esconda
+        fim
+        se <tocando em [inimigo]> então
+          esconda
+          transmita [p2 win]
+          pare [todos]
+        fim
+
+
+
+        quando [bandeira verde] for clicado
+        sempre
+        se < tecla [d] pressionada? > então
+          mude [direção p1] para 90
+          adicione 8 a x
+        fim
+        se < tecla [a] pressionada? > então
+          mude [direção p1] para -90
+          adicione -8 a x
+        fim
+        se tocar na borda, volte
+      fim
+    </pre>
+    <p class="explicacao">👉 O personagem P1 run é o personagem que corre, com a animação de corrida.</p>
+    <p class="explicacao">👉 Ele sempre está na posição inicial, que é a posição de corrida.</p>
+    <p class="explicacao">👉 Ele só fica visível quando está se movendo.</p>
+    <p class="explicacao">👉 Se ele tocar no inimigo, ele se esconde e transmite a mensagem de que o P2 ganhou.</p>
+    <p class="explicacao">👉 A direção do personagem é controlada pelas teclas "D" e "A".</p>
+    <p class="explicacao">👉 Se ele tocar na borda, ele volta.</p>
+
   </div>
   <!-- <div class="bloco">
     <h2>🐍 Personagem - Snake</h2>
