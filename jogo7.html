@@ -88,90 +88,128 @@
     <p class="explicacao">👉 Se ele tocar no inimigo, ele se esconde e transmite a mensagem de que o P2 ganhou.</p>
     <p class="explicacao">👉 A direção do personagem é controlada pelas teclas "D" e "A".</p>
     <p class="explicacao">👉 Se ele tocar na borda, ele volta.</p>
-
   </div>
-  <!-- <div class="bloco">
-    <h2>🐍 Personagem - Snake</h2>
-    <pre>
-quando [bandeira verde] for clicado
-vá para x: (-180) y: (21)
-aponte para a direção (90)
-sempre
-    se &lt;tecla [seta para cima] pressionada?&gt; então
-        aponte para a direção (0)
-    fim
-fim
-    se &lt;tecla [seta para baixo] pressionada?&gt; então
-        aponte para a direção (180)
-    fim
-fim
-    se &lt;tecla [seta para direita] pressionada?&gt; então
-        aponte para a direção (90)
-    fim
-fim
-    se &lt;tecla [seta para esquerda] pressionada?&gt; então
-        aponte para a direção (-90)
-    fim
-fim
 
-quando [bandeira verde] for clicado
-mude [pontos] para (0)
-mude [tamanho] para (0.2)
-sempre
-  se &lt;tocando em [fruta]?&gt; então
-    adicione (1) a [pontos]
-    adicione (0.2) a [tamanho]
-    transmita [pegou]
-  fim
-fim
 
-quando [bandeira verde] for clicado
-sempre
-    mova (4) passos
-fim
-
-quando eu começar como um clone
-espere (tamanho) segundos
-apague este clone
-
-quando [bandeira verde] for clicado
-sempre
-    mude para a fantasia [fantasia2]
-    crie um clone de [este ator]
-    mude para a fantasia [fantasia1]
-    mova (1) passos
-    epere (0.05) segundos
-fim
-    </pre>
-    <p class="explicacao">👉 A cobra sempre se move automaticamente. Usamos as setas para controlar sua direção.</p>
-    <p class="explicacao">👉 O tamanho dela é, na verdade, o comprimento inicial.</p>
-    <p class="explicacao">👉 Quando pegamos a fruta, ela adiciona um ponto.</p>
-    <p class="explicacao">👉 Adiciona seu tamanho ao tamanho já existente, fazendo a cobra crescer ao pegar a fruta.</p>
-    <p class="explicacao">👉 A mensagem pegou serve para a fruta ir para outra posição.</p>
-    <p class="explicacao">👉 Quando pegamos a fruta, ela adiciona um ponto.</p>
-    <p class="explicacao">👉 Na cobra, temos 2 fantasias: cabeça e corpo, respectivamente.</p>
-    <p class="explicacao">👉 Mudar para a fantasia 2 antes de criar o clone serve para criar o clone do corpo da cobra e não da cabeça.</p>
-    <p class="explicacao">👉 O tempo próximo da criação do clone (abaixo de mova 1 passos) é a distância entre um corpo e outro.</p>
-    <br>
-    <p class="explicacao">👆 Mude o valor desse tempo ou remova o bloco e veja o resultado.</p>
-  </div>
   <div class="bloco">
-    <h2>🍎 Fruta</h2>
+    <h2>p2 idle</h2>
+  </div>
+  <pre>
+    quando [bandeira verde v] for clicado
+    vá para x: (36) y: (-86)
+    sempre
+      próxima fantasia
+      vá para [p2 run]
+      aponte para a direção (direção p2)
+      se <(tecla [j] pressionada?) ou <(tecla [i] pressionada?)> então
+        esconda
+      senão
+        mostre
+      fim
+      se <tocando em [inimigo]> então
+        esconda
+        transmita [p1 win]
+        pare [todos]
+      fim
+    fim
+  </pre>
+  <p class="explicacao">👉 O personagem P2 idle é o personagem que fica parado, mas com a animação de respiração.</p>
+  <p class="explicacao">👉 Ele sempre está na posição inicial, que é a posição de respiração.</p>
+  <p class="explicacao">👉 Ele só fica visível quando não está se movendo.</p>
+  <p class="explicacao">👉 Se ele tocar no inimigo, ele se esconde e transmite a mensagem de que o P1 ganhou.</p>
+  <div class="bloco">
+    <h2>p2 run</h2>
     <pre>
-quando [bandeira verde] for clicado
-vá para x: (41) y: (19)
+      quando [bandeira verde] for clicado
+      vá para x: (36) y: (-86)
+      sempre
+        próxima fantasia
+        aponte para a direção (direção p2)
+        se <(tecla [j] pressionada?) ou <(tecla [l] pressionada?)> então
+          mostre
+        senão
+          esconda
+        fim
+        se <tocando em [inimigo]> então
+          esconda
+          transmita [p1 win]
+          pare [todos]
+        fim
 
-quando eu receber [pegou]
-esconda
-vá para [posição aleatória]
-mostre
+
+
+        quando [bandeira verde] for clicado
+        sempre
+        se < tecla [l] pressionada? > então
+          mude [direção p2] para 90
+          adicione 8 a x
+        fim
+        se < tecla [j] pressionada? > então
+          mude [direção p2] para -90
+          adicione -8 a x
+        fim
+        se tocar na borda, volte
+      fim
     </pre>
-    <p class="explicacao">👉 Quando inicia ou quando recebe “pegou”, troca de posição.</p>
-  </div> -->
+    <p class="explicacao">👉 O personagem P2 run é o personagem que corre, com a animação de corrida.</p>
+    <p class="explicacao">👉 Ele sempre está na posição inicial, que é a posição de corrida.</p>
+    <p class="explicacao">👉 Ele só fica visível quando está se movendo.</p>
+    <p class="explicacao">👉 Se ele tocar no inimigo, ele se esconde e transmite a mensagem de que o P1 ganhou.</p>
+    <p class="explicacao">👉 A direção do personagem é controlada pelas teclas "L" e "J".</p>
+    <p class="explicacao">👉 Se ele tocar na borda, ele volta.</p>
+  </div>
+
+  <div class="bloco">
+    <h2>inimigo</h2>
+    <pre>
+      quando [bandeira verde] for clicado
+      mostre
+      vá para x: -208 y: 81
+      repita (9) vezes
+        crie clone de [este ator]
+        adicione (46) a x
+      fim
+
+
+
+      quando eu começar como um clone
+      sempre
+        repita (4) vezes
+          próxima fantasia
+          espere (0.3) segundos
+        fim
+        espere (número aleatório entre [3] e [7]) segundos
+      fim
+
+
+      quando eu começar como um clone
+      sempre
+        espere (número aleatório entre [3] e [10]) segundos
+        delize por (1) seg até x: (posição x) y: [(posição y) - (160)]
+        espere (0.5) segundos
+        delize por (1) seg até x: (posição x) y: [(posição y) + (160)]
+      fim
+
+
+      quando eu receber [p1 win]
+        esconda
+      fim
+
+      quando eu receber [p2 win]
+        esconda
+      fim
+    </pre>
+    <p class="explicacao">👉 O inimigo é o personagem que esmaga os jogadores.</p>
+    <p class="explicacao">👉 Ele aparece na parte superior da tela e desce até a parte inferior.</p>
+    <p class="explicacao">👉 Ele é clonado várias vezes para criar vários inimigos.</p>
+    <p class="explicacao">👉 Ele se move aleatoriamente para baixo e para cima.</p>
+    <p class="explicacao">👉 Se ele tocar no P1, o P2 ganha, e vice-versa.</p>
+  </div>
+
  
   <div class="bt">
     <button class="voltar">
-      <a href="./jogo5.html">Voltar</a>
+      <a href="./jogo6.html">Voltar</a>
   </button>
     <!-- <button class="avancar">
       <a href="./jogo6.html">Avançar</a>
