@@ -25,6 +25,7 @@
   <div class="bloco">
     <h2>🔵 p1 idle</h2>
   </div>
+  <p class="explicacao">👉 (direção p1) é uma variável</p>
   <pre>
     quando [bandeira verde] for clicado
     vá para x: (-36) y: (-86)
@@ -66,20 +67,19 @@
           transmita [p2 win]
           pare [todos]
         fim
-
-
-        quando [bandeira verde] for clicado
-        sempre
-        se < tecla [d] pressionada? > então
-          mude [direção p1] para 90
-          adicione 8 a x
-        fim
-        se < tecla [a] pressionada? > então
-          mude [direção p1] para -90
-          adicione -8 a x
-        fim
-        se tocar na borda, volte
       fim
+
+      quando [bandeira verde] for clicado
+      sempre
+      se < tecla [d] pressionada? > então
+        mude [direção p1] para 90
+        adicione 8 a x
+      fim
+      se < tecla [a] pressionada? > então
+        mude [direção p1] para -90
+        adicione -8 a x
+      fim
+      se tocar na borda, volte
     </pre>
     <p class="explicacao">👉 O personagem P1 run é o personagem que corre, com a animação de corrida.</p>
     <p class="explicacao">👉 Ele sempre está na posição inicial, que é a posição de corrida.</p>
@@ -93,6 +93,7 @@
   <div class="bloco">
     <h2>🟢 p2 idle</h2>
   </div>
+  <p class="explicacao">👉 (direção p2) é uma variável</p>
   <pre>
     quando [bandeira verde] for clicado
     vá para x: (36) y: (-86)
@@ -134,20 +135,19 @@
           transmita [p1 win]
           pare [todos]
         fim
-
-
-        quando [bandeira verde] for clicado
-        sempre
-        se < tecla [l] pressionada? > então
-          mude [direção p2] para 90
-          adicione 8 a x
-        fim
-        se < tecla [j] pressionada? > então
-          mude [direção p2] para -90
-          adicione -8 a x
-        fim
-        se tocar na borda, volte
       fim
+
+      quando [bandeira verde] for clicado
+      sempre
+      se < tecla [l] pressionada? > então
+        mude [direção p2] para 90
+        adicione 8 a x
+      fim
+      se < tecla [j] pressionada? > então
+        mude [direção p2] para -90
+        adicione -8 a x
+      fim
+      se tocar na borda, volte
     </pre>
     <p class="explicacao">👉 O personagem P2 run é o personagem que corre, com a animação de corrida.</p>
     <p class="explicacao">👉 Ele sempre está na posição inicial, que é a posição de corrida.</p>
