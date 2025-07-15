@@ -23,7 +23,7 @@
   </div>
 
   <div class="bloco">
-    <h2>p1 idle</h2>
+    <h2>🔵 p1 idle</h2>
   </div>
   <pre>
     quando [bandeira verde v] for clicado
@@ -49,7 +49,7 @@
   <p class="explicacao">👉 Ele só fica visível quando não está se movendo.</p>
   <p class="explicacao">👉 Se ele tocar no inimigo, ele se esconde e transmite a mensagem de que o P2 ganhou.</p>
   <div class="bloco">
-    <h2>p1 run</h2>
+    <h2>🔵 p1 run</h2>
     <pre>
       quando [bandeira verde] for clicado
       vá para x: (-36) y: (-86)
@@ -66,7 +66,6 @@
           transmita [p2 win]
           pare [todos]
         fim
-
 
 
         quando [bandeira verde] for clicado
@@ -92,7 +91,7 @@
 
 
   <div class="bloco">
-    <h2>p2 idle</h2>
+    <h2>🟢 p2 idle</h2>
   </div>
   <pre>
     quando [bandeira verde v] for clicado
@@ -118,7 +117,7 @@
   <p class="explicacao">👉 Ele só fica visível quando não está se movendo.</p>
   <p class="explicacao">👉 Se ele tocar no inimigo, ele se esconde e transmite a mensagem de que o P1 ganhou.</p>
   <div class="bloco">
-    <h2>p2 run</h2>
+    <h2>🟢 p2 run</h2>
     <pre>
       quando [bandeira verde] for clicado
       vá para x: (36) y: (-86)
@@ -135,7 +134,6 @@
           transmita [p1 win]
           pare [todos]
         fim
-
 
 
         quando [bandeira verde] for clicado
@@ -160,7 +158,7 @@
   </div>
 
   <div class="bloco">
-    <h2>inimigo</h2>
+    <h2>🪨 inimigo</h2>
     <pre>
       quando [bandeira verde] for clicado
       mostre
@@ -169,7 +167,6 @@
         crie clone de [este ator]
         adicione (46) a x
       fim
-
 
 
       quando eu começar como um clone
@@ -195,6 +192,7 @@
         esconda
       fim
 
+
       quando eu receber [p2 win]
         esconda
       fim
@@ -205,6 +203,27 @@
     <p class="explicacao">👉 Ele se move aleatoriamente para baixo e para cima.</p>
     <p class="explicacao">👉 Se ele tocar no P1, o P2 ganha, e vice-versa.</p>
   </div>
+
+  <div class="bloco">
+    <h2>🎵 Cenário</h2>
+    <pre>
+      quando [bandeira verde] for clicado
+        mude o cenario para [game]
+        sempre
+          toque o som [three red hearts - box jump] até o fim
+        fim
+
+
+        quando eu receber [p1 win]
+          mude o cenario para [p1 win]
+        fim
+
+
+        quando eu receber [p2 win]
+          mude o cenario para [p2 win]
+        fim
+    </pre>
+
 
  
   <div class="bt">
