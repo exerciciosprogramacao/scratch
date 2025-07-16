@@ -101,8 +101,8 @@ body.dark a {
       /* background: #eee;
       border-radius: 5px; */
     }
-    img{
-      max-width: 700px;
+    iframe{
+      max-width: 800px;
       border-radius: 5px;
     }
     button{
@@ -114,7 +114,7 @@ body.dark a {
     }
 
     @media (max-width: 768px) {
-      img{
+      iframe{
         max-width: 300px;
       }
     }

@@ -13,7 +13,7 @@
   </div>
   <h1 class="tit">📘 Documentação do Projeto - Jogo Pong</h1>
   <div class="image">
-    <img src="./img/pong.PNG" alt="">
+    <iframe src="https://scratch.mit.edu/projects/1197627185/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
   </div>
 
   <div class="bloco">
@@ -75,6 +75,10 @@ sempre
         adicione (1) a [pontos p2]
         vá para x: (0) y: (0)
         aponte para direção (número aleatório entre (45) e (-45))
+    fim
+    se &lt;&lt;(direção) = (0)&gt; ou &lt;(direçao) = (180)&gt;&gt; então
+        aponte para direção (número aleatório entre (45) e (-45))
+    fim
 fim
 
 quando a bandeira verde for clicada
@@ -95,7 +99,7 @@ fim
 quando a bandeira verde for clicada
 vá para x: (200) y: (0)
 sempre
-    mude y para ((bola))
+    mude y para ((bola) / (2.5))
 fim
     </pre>
     <p class="explicacao">👉 Essa programação faz a barra seguir o inimigo.</p>  

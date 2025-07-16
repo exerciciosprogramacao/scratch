@@ -87,7 +87,7 @@ a{
   justify-content: center;
   /* background: #ff2121; */
 }
-img{
+iframe{
   max-width: 800px;
   border-radius: 5px;
 }
@@ -100,7 +100,7 @@ button{
 }
 
 @media (max-width: 768px) {
-  img{
+  iframe{
     max-width: 300px;
   }
 }
