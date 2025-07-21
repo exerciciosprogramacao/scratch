@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercícios</title>
+  <link rel="stylesheet" href="./jogo7.css">
+  <link rel="icon" type="image/png" href="./img/logo0remov.png">
+</head>
+<body>
+  <div class="btt">
+    <button class="avancar" onclick="toggleDarkMode()">👓</button>
+  </div>
+  <h1 class="tit">📘 Documentação do Projeto - Space Survival</h1>
+  <div class="image">
+    <iframe src="https://scratch.mit.edu/projects/1198412400/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
+  </div>
+  <div class="bloco">
+    <h2>Sprites</h2>
+    <pre>
+        <a href="./sprites/Arquivos do jogo7.zip">Clique Aqui para baixar os aquivos do jogo</a>
+    </pre>    
+  </div>
+
+  <div class="bloco">
+    <h2>👨‍🚀 Programção da Nave</h2>
+  </div>
+  <pre>
+    quando [bandeira verde] for clicado
+        mostre
+        vá para x: (0) y: (0)
+        sempre
+            aponte para [ponteiro do mouse]
+            gire (90) graus
+            próxima fantasia
+            se <tecla [w] pressionada?> então
+                adicione (3) a y
+            fim
+            se <tecla [s] pressionada?> então
+                adicione (-3) a y
+            fim
+            se <tecla [a] pressionada?> então
+                adicione (-3) a x
+            fim
+            se <tecla [d] pressionada?> então
+                adicione (3) a x
+            fim
+            se <tocando em [meteoro]> então
+                transmita [game over]
+            fim
+        fim
+
+
+    quando [bandeira verde] for clicado
+        sempre
+            se <tecla [espaço] pressionada?> então
+                crie clone de [laser]
+                espere (1) seg
+            fim
+        fim
+
+
+    quando eu receber [game over]
+        esconda
+        pare [outros scripts no ator]
+  </pre>
+    <p class="explicacao">👉 O personagem principal segue o ponteiro do mouse e gira 90 graus para se alinhar corretamente.</p>
+    <p class="explicacao">👉 Ele pode se mover usando as teclas W, A, S e D, alterando sua posição no eixo X e Y.</p>
+    <p class="explicacao">👉 Se ele tocar no meteoro, o jogo envia a mensagem de "game over".</p>
+    <p class="explicacao">👉 Ao apertar a tecla espaço, o personagem cria um clone do laser (um disparo) a cada 1 segundo.</p>
+    <p class="explicacao">👉 Quando o personagem recebe a mensagem "game over", ele se esconde e para todos os scripts do ator.</p>
+  <div class="bloco">
+    <h2>🔫 Programação do Laser</h2>
+    <pre>
+        quando eu começar como um clone
+            toque o som [som de laser]
+            defina o tamanho como (15)%
+            vá para [nave]
+            mostre
+            aponte para [ponteiro do mouse]
+            sempre
+                próxima fantasia
+                mova (6) passos
+            fim
+
+
+        quando eu começar como um clone
+            sempre
+                se <tocando em [borda]> então
+                    apague este clone
+                fim
+                se <tocando em [meteoro]> então
+                    espere (0.1) seg
+                    apague este clone
+                fim
+            fim
+
+
+        quando eu receber [game over]
+            esconda
+            pare [outros scripts no ator]
+
+
+        quando [bandeira verde] for clicado
+            esconda
+   
+    </pre>
+<p class="explicacao">👉 Quando o laser (clone) é criado, ele toca um som e aparece na posição da nave, apontando para o ponteiro do mouse.</p>
+<p class="explicacao">👉 O laser se move continuamente com animação (próxima fantasia) e avança 6 passos por vez.</p>
+<p class="explicacao">👉 Se o laser tocar na borda, ele se apaga automaticamente para economizar recursos.</p>
+<p class="explicacao">👉 Se tocar em um meteoro, ele espera 0.1 segundo e depois se apaga (isso dá tempo para efeitos ou colisões visuais).</p>
+<p class="explicacao">👉 Quando o jogo termina (mensagem "game over"), o laser se esconde e para seus scripts.</p>
+<p class="explicacao">👉 Quando a bandeira verde é clicada, ele se esconde para não aparecer antes da hora.</p>
+
+  </div>
+
+
+  <div class="bloco">
+    <h2>☄️Programação do Meteoro</h2>
+  </div>
+  <p class="explicacao">‼️ <b>Lado</b> é uma variável</p>
+  <p class="explicacao">‼️ <b>Meteoro Destruídos</b> é uma variável</p>
+  <pre>
+    quando [bandeira verde] for clicado
+    vá para x: (36) y: (-86)
+    sempre
+      próxima fantasia
+      vá para [p2 run]
+      aponte para a direção (direção p2)
+      se <(tecla [j] pressionada?) ou <(tecla [i] pressionada?)> então
+        esconda
+      senão
+        mostre
+      fim
+      se <tocando em [inimigo]> então
+        esconda
+        transmita [p1 win]
+        pare [todos]
+      fim
+    fim
+  </pre>
+  <p class="explicacao">👉 O personagem P2 idle é o personagem que fica parado, mas com a animação de respiração.</p>
+  <p class="explicacao">👉 Ele só fica visível quando não está se movendo.</p>
+  <p class="explicacao">👉 Se ele tocar no inimigo, ele se esconde e transmite a mensagem de que o P1 ganhou.</p>
+  <div class="bloco">
+    <h2>🟢 p2 run</h2>
+    <pre>
+      quando [bandeira verde] for clicado
+      vá para x: (36) y: (-86)
+      sempre
+        próxima fantasia
+        aponte para a direção (direção p2)
+        se <(tecla [j] pressionada?) ou <(tecla [l] pressionada?)> então
+          mostre
+        senão
+          esconda
+        fim
+        se <tocando em [inimigo]> então
+          esconda
+          transmita [p1 win]
+          pare [todos]
+        fim
+      fim
+
+      quando [bandeira verde] for clicado
+      sempre
+      se < tecla [l] pressionada? > então
+        mude [direção p2] para 90
+        adicione 8 a x
+      fim
+      se < tecla [j] pressionada? > então
+        mude [direção p2] para -90
+        adicione -8 a x
+      fim
+      se tocar na borda, volte
+    </pre>
+    <p class="explicacao">👉 O personagem P2 run é o personagem que corre, com a animação de corrida.</p>
+    <p class="explicacao">👉 Ele só fica visível quando está se movendo.</p>
+    <p class="explicacao">👉 Se ele tocar no inimigo, ele se esconde e transmite a mensagem de que o P1 ganhou.</p>
+    <p class="explicacao">👉 A direção do personagem é controlada pelas teclas "L" e "J".</p>
+    <p class="explicacao">👉 Se ele tocar na borda, ele volta.</p>
+  </div>
+
+  <div class="bloco">
+    <h2>🪨 inimigo</h2>
+    <pre>
+      quando [bandeira verde] for clicado
+      mostre
+      vá para x: -208 y: 81
+      repita (9) vezes
+        crie clone de [este ator]
+        adicione (46) a x
+      fim
+
+
+      quando eu começar como um clone
+      sempre
+        repita (4) vezes
+          próxima fantasia
+          espere (0.3) segundos
+        fim
+        espere (número aleatório entre [3] e [7]) segundos
+      fim
+
+
+      quando eu começar como um clone
+      sempre
+        espere (número aleatório entre [3] e [10]) segundos
+        delize por (1) seg até x: (posição x) y: [(posição y) - (160)]
+        espere (0.5) segundos
+        delize por (1) seg até x: (posição x) y: [(posição y) + (160)]
+      fim
+
+
+      quando eu receber [p1 win]
+        esconda
+      fim
+
+
+      quando eu receber [p2 win]
+        esconda
+      fim
+    </pre>
+    <p class="explicacao">👉 O inimigo é o personagem que esmaga os jogadores.</p>
+    <p class="explicacao">👉 Ele aparece na parte superior da tela e desce até a parte inferior.</p>
+    <p class="explicacao">👉 Ele é clonado várias vezes para criar vários inimigos.</p>
+    <p class="explicacao">👉 Ele se move aleatoriamente para baixo e para cima.</p>
+    <p class="explicacao">👉 Se ele tocar no P1, o P2 ganha, e vice-versa.</p>
+  </div>
+
+  <div class="bloco">
+    <h2>🎵 Cenário</h2>
+    <pre>
+      quando [bandeira verde] for clicado
+        mude o cenario para [game]
+        sempre
+          toque o som [three red hearts - box jump] até o fim
+        fim
+
+
+        quando eu receber [p1 win]
+          mude o cenario para [p1 win]
+        fim
+
+
+        quando eu receber [p2 win]
+          mude o cenario para [p2 win]
+        fim
+    </pre>
+    <p class="explicacao">👉 O cenário é o fundo do jogo.</p>
+    <p class="explicacao">👉 Ele muda para o cenário de vitória quando um dos jogadores ganha.</p>
+    <p class="explicacao">👉 O som "three red hearts - box jump" é tocado durante o jogo.</p>
+
+  </div>
+ 
+  <div class="bt">
+    <button class="voltar">
+      <a href="./jogo6.html">Voltar</a>
+  </button>
+    <!-- <button class="avancar">
+      <a href="./jogo8.html">Avançar</a>
+  </button> -->
+  </div>
+  <script src="./script.js"></script>
+
+</body>
+</html>
