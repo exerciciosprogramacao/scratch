@@ -33,19 +33,19 @@
         aponte para [ponteiro do mouse]
         gire (90) graus
         próxima fantasia
-        se <tecla [w] pressionada?> então
+        se < tecla [w] pressionada? > então
           adicione (3) a y
         fim
-        se <tecla [s] pressionada?> então
+        se < tecla [s] pressionada? > então
           adicione (-3) a y
         fim
-        se <tecla [a] pressionada?> então
+        se < tecla [a] pressionada? > então
           adicione (-3) a x
         fim
-        se <tecla [d] pressionada?> então
+        se < tecla [d] pressionada? > então
           adicione (3) a x
         fim
-        se <tocando em [meteoro]> então
+        se < tocando em [meteoro] > então
           transmita [game over]
         fim
       fim
@@ -53,7 +53,7 @@
 
     quando [bandeira verde] for clicado
       sempre
-        se <tecla [espaço] pressionada?> então
+        se < tecla [espaço] pressionada? > então
           crie clone de [laser]
           espere (1) seg
         fim
@@ -86,10 +86,10 @@
 
       quando eu começar como um clone
         sempre
-          se <tocando em [borda]> então
+          se < tocando em [borda] > então
             apague este clone
           fim
-          se <tocando em [meteoro]> então
+          se < tocando em [meteoro] > então
             espere (0.1) seg
             apague este clone
           fim
