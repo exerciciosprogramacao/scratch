@@ -171,27 +171,20 @@
   <div class="bloco">
     <h2>🔚 Programação do Game over</h2>
     <pre>
-      quando eu começar como um clone
+      quando [bandeira verde] for clicado
+        defina o tamanho como (100) %
+        esconda
+        mude [Meteoros destruídos] para (0)
+        esconda a variável [Meteoros destruídos]
+
+      quando eu receber [game over]
+        mostre a variável [Meteoros destruídos]
         mostre
-        mude [lado v] para (número aleatório entre (1) e (4))    
-        se <(lado) = (1)> então
-          vá para x: (número aleatório entre (-230) e (230)) y: (170)    
-        se <(lado) = (2)> então
-          vá para x: (-230) y: (número aleatório entre (-170) e (170))    
-        se <(lado) = (3)> então
-          vá para x: (230) y: (número aleatório entre (-170) e (170))    
-        se <(lado) = (4)> então
-          vá para x: (número aleatório entre (-230) e (230)) y: (-170)    
-        aponte para [nave]    
         sempre
-          mova (2) passos
-          se < tocando em [laser] > então
-            toque o som [explosão]
-            adicione (1) a [Meteoros destruídos]
-            repita (8) vezes
-              próxima fantasia
-            apague este clone
-          fim
+          mude (5) no tamanho
+          espere (0.1) seg
+          mude (-5) no tamanho
+          espere (0.1) seg
         fim
     </pre>
       <p>🚀 Este script define o comportamento de um meteoro quando ele aparece como um clone.</p>
