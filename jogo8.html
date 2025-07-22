@@ -27,42 +27,42 @@
   </div>
   <pre>
     quando [bandeira verde] for clicado
-        mostre
-        vá para x: (0) y: (0)
-        sempre
-            aponte para [ponteiro do mouse]
-            gire (90) graus
-            próxima fantasia
-            se <tecla [w] pressionada?> então
-                adicione (3) a y
-            fim
-            se <tecla [s] pressionada?> então
-                adicione (-3) a y
-            fim
-            se <tecla [a] pressionada?> então
-                adicione (-3) a x
-            fim
-            se <tecla [d] pressionada?> então
-                adicione (3) a x
-            fim
-            se <tocando em [meteoro]> então
-                transmita [game over]
-            fim
+      mostre
+      vá para x: (0) y: (0)
+      sempre
+        aponte para [ponteiro do mouse]
+        gire (90) graus
+        próxima fantasia
+        se <tecla [w] pressionada?> então
+          adicione (3) a y
         fim
+        se <tecla [s] pressionada?> então
+          adicione (-3) a y
+        fim
+        se <tecla [a] pressionada?> então
+          adicione (-3) a x
+        fim
+        se <tecla [d] pressionada?> então
+          adicione (3) a x
+        fim
+        se <tocando em [meteoro]> então
+          transmita [game over]
+        fim
+      fim
 
 
     quando [bandeira verde] for clicado
-        sempre
-            se <tecla [espaço] pressionada?> então
-                crie clone de [laser]
-                espere (1) seg
-            fim
+      sempre
+        se <tecla [espaço] pressionada?> então
+          crie clone de [laser]
+          espere (1) seg
         fim
+      fim
 
 
     quando eu receber [game over]
-        esconda
-        pare [outros scripts no ator]
+      esconda
+      pare [outros scripts no ator]
   </pre>
     <p class="explicacao">👉 O personagem principal segue o ponteiro do mouse e gira 90 graus para se alinhar corretamente.</p>
     <p class="explicacao">👉 Ele pode se mover usando as teclas W, A, S e D, alterando sua posição no eixo X e Y.</p>
@@ -72,38 +72,37 @@
   <div class="bloco">
     <h2>🔫 Programação do Laser</h2>
     <pre>
-        quando eu começar como um clone
-            toque o som [som de laser]
-            defina o tamanho como (15)%
-            vá para [nave]
-            mostre
-            aponte para [ponteiro do mouse]
-            sempre
-                próxima fantasia
-                mova (6) passos
-            fim
+      quando eu começar como um clone
+        toque o som [som de laser]
+        defina o tamanho como (15)%
+        vá para [nave]
+        mostre
+        aponte para [ponteiro do mouse]
+        sempre
+          próxima fantasia
+          mova (6) passos
+        fim
 
 
-        quando eu começar como um clone
-            sempre
-                se <tocando em [borda]> então
-                    apague este clone
-                fim
-                se <tocando em [meteoro]> então
-                    espere (0.1) seg
-                    apague este clone
-                fim
-            fim
+      quando eu começar como um clone
+        sempre
+          se <tocando em [borda]> então
+            apague este clone
+          fim
+          se <tocando em [meteoro]> então
+            espere (0.1) seg
+            apague este clone
+          fim
+        fim
 
 
-        quando eu receber [game over]
-            esconda
-            pare [outros scripts no ator]
+      quando eu receber [game over]
+        esconda
+        pare [outros scripts no ator]
 
 
-        quando [bandeira verde] for clicado
-            esconda
-   
+      quando [bandeira verde] for clicado
+        esconda   
     </pre>
 <p class="explicacao">👉 Quando o laser (clone) é criado, ele toca um som e aparece na posição da nave, apontando para o ponteiro do mouse.</p>
 <p class="explicacao">👉 O laser se move continuamente com animação (próxima fantasia) e avança 6 passos por vez.</p>
@@ -172,29 +171,28 @@
   <div class="bloco">
     <h2>🔚 Programação do Game over</h2>
     <pre>
-    quando eu começar como um clone
-      mostre
-      mude [lado v] para (número aleatório entre (1) e (4))    
-      se <(lado) = (1)> então
-        vá para x: (número aleatório entre (-230) e (230)) y: (170)    
-      se <(lado) = (2)> então
-        vá para x: (-230) y: (número aleatório entre (-170) e (170))    
-      se <(lado) = (3)> então
-        vá para x: (230) y: (número aleatório entre (-170) e (170))    
-      se <(lado) = (4)> então
-        vá para x: (número aleatório entre (-230) e (230)) y: (-170)    
-      aponte para [nave v]    
-      sempre
-        mova (2) passos
-        se <tocando em [laser v]> então
-          toque o som [explosão v]
-          adicione (1) a [Meteoros destruídos v]
-          repita (8) vezes
-            próxima fantasia
-          apague este clone
+      quando eu começar como um clone
+        mostre
+        mude [lado v] para (número aleatório entre (1) e (4))    
+        se <(lado) = (1)> então
+          vá para x: (número aleatório entre (-230) e (230)) y: (170)    
+        se <(lado) = (2)> então
+          vá para x: (-230) y: (número aleatório entre (-170) e (170))    
+        se <(lado) = (3)> então
+          vá para x: (230) y: (número aleatório entre (-170) e (170))    
+        se <(lado) = (4)> então
+          vá para x: (número aleatório entre (-230) e (230)) y: (-170)    
+        aponte para [nave v]    
+        sempre
+          mova (2) passos
+          se <tocando em [laser v]> então
+            toque o som [explosão v]
+            adicione (1) a [Meteoros destruídos v]
+            repita (8) vezes
+              próxima fantasia
+            apague este clone
+          fim
         fim
-      fim
-
     </pre>
       <p>🚀 Este script define o comportamento de um meteoro quando ele aparece como um clone.</p>
       <p>👉 Ele aparece em uma das 4 bordas da tela, escolhida aleatoriamente, e aponta para a nave do jogador.</p>
