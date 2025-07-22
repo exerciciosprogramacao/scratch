@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercícios</title>
+  <link rel="stylesheet" href="./jogo10.css">
+  <link rel="icon" type="image/png" href="./img/logo0remov.png">
+</head>
+<body>
+  <div class="btt">
+    <button class="avancar" onclick="toggleDarkMode()">👓</button>
+  </div>
+
+  <h1 class="tit">📘 Documentação do Projeto - Quiz Verdadeiro ou Falso</h1>
+
+  <div class="image">
+    <iframe src="https://scratch.mit.edu/projects/1197805183/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
+  </div>
+  <div class="bloco">
+    <h2>Sprites</h2>
+    <pre>
+        <a href="./sprites/Arquivos do jogo10.zip">Clique Aqui para baixar os aquivos do jogo</a>
+    </pre> 
+  </div>
+  <div class="bloco">
+    <h2>Crie as variáveis</h2>
+    <p class="explicacao">‼️ <b>p1</b> é uma variável</p>
+    <p class="explicacao">‼️ <b>p2</b> é uma variável</p>
+    <p class="explicacao">‼️ <b>p3</b> é uma variável</p>
+    <p class="explicacao">‼️ <b>p4</b> é uma variável</p>
+    <p class="explicacao">‼️ <b>tempo</b> é uma variável</p>
+    <p class="explicacao">‼️ <b>pergunta</b> é uma variável</p>
+</div>
+
+  <div class="bloco">
+    <h2>Programação do bloco <span class="verdadeiro">Verdadeiro</span> e do bloco <span class="falso">Falso</span></h2>
+  </div>
+  <pre>
+    quando [bandeira verde] for clicado
+        vá para x: (0) y: (0)
+        mostre
+
+    quando eu receber [esconda]
+        esconda
+  </pre>
+
+   <div class="bloco">
+    <h2>🔴Player 1 (P1)</h2>
+  </div>
+  <pre>
+    quando [bandeira verde] for clicado
+        mostre
+        mude [p1] para (0)
+        vá para x: (0) y: (0)
+        defina o tamanho como (55) %
+        sempre
+            mude (5) no tamanho
+            espere (0.1) segundos
+            mude (-5) no tamanho
+            espere (0.1) segundos
+        fim
+
+
+    quando eu receber [esconda]
+        esconda
+
+
+    quando eu receber [início]
+        vá para a camada [frente]
+        vá para x: (0) y: (0)
+        sempre
+            se <(tempo) > (0)> então
+                se < tecla [a] pressionada? > então
+                    vá para x: (170) y: (0)
+                fim
+                se < tecla [s] pressionada? > então
+                    vá para x: (170) y: (0)
+                fim
+            fim
+        fim
+
+
+    quando eu receber [verificar respostas]
+        se <(pergunta) = (1)> então
+            se < tocando em [verdadeiro] ? > então
+                adicione (1) a [p1]
+            fim
+        fim
+        se <(pergunta) = (2)> então
+            se < tocando em [falso] ?>  então
+                adicione (1) a [p1]
+            fim
+        fim
+        se <(pergunta) = (3)> então
+            se < tocando em [falso] ? > então
+                adicione (1) a [p1]
+            fim
+        fim
+  </pre>
+<ul>
+    <li>🟢 <strong>Quando começa:</strong>
+        <ul>
+            <li>👀 Personagem aparece</li>
+            <li>📍 Vai para posição x:0 y:0</li>
+            <li>📏 Tamanho 55%</li>
+            <li>💯 Pontuação (p1) = 0</li>
+        </ul>
+    </li>
+    
+    <li>🌀 <strong>Animação:</strong>
+        <ul>
+            <li>🔵 Cresce +5%</li>
+            <li>⏱ Espera 0.1s</li>
+            <li>🔴 Diminui -5%</li>
+            <li>🔄 Repete sempre</li>
+        </ul>
+    </li>
+    
+    <li>🎮 <strong>Controles (teclado):</strong>
+        <ul>
+            <li>🅰 Tecla A → move para esquerda</li>
+            <li>🆂 Tecla S → move para direita</li>
+        </ul>
+    </li>
+    
+    <li>✅ <strong>Sistema de Pontos:</strong>
+        <ul>
+            <li>1️⃣ Pergunta 1: Tocar no <span class="verdadeiro">VERDADEIRO</span> = +1 ponto</li>
+            <li>2️⃣ Pergunta 2: Tocar no <span class="falso">FALSO</span> = +1 ponto</li>
+            <li>3️⃣ Pergunta 3: Tocar no <span class="falso">FALSO</span> = +1 ponto</li>
+        </ul>
+    </li>
+    
+    <li>👻 <strong>Comando especial:</strong>
+        <ul>
+            <li>Receber "esconda" → personagem desaparece</li>
+        </ul>
+    </li>
+</ul>
+  
+<div class="bloco">
+    <h2>🔵Player 2 (P2)</h2>
+</div>
+<h3>Para os outros Players a programação muda somente alguns detalhes</h3>
+<p>No caso do P2:</p>
+<ul>
+    <li>A variável [p1] passa a ser <span style="color:red">[p2]</span></li>
+    <li>A posição y do personagem diminui 50 (0 - 50 = <span style="color:red">-50</span>)</li>
+    <li>São alterados os botões de movimentação</li>
+</ul>
+
+<pre>
+    quando [bandeira verde] for clicado
+        mostre
+        mude <span style="color:red">[p2]</span> para (0)
+        vá para x: (0) y: <span style="color:red">(-50)</span>
+        defina o tamanho como (55) %
+        sempre
+            mude (5) no tamanho
+            espere (0.1) segundos
+            mude (-5) no tamanho
+            espere (0.1) segundos
+        fim
+
+
+    quando eu receber [esconda]
+        esconda
+
+
+    quando eu receber [início]
+        vá para a camada [frente]
+        vá para x: (0) y: <span style="color:red">(-50)</span>
+        sempre
+            se <(tempo) > (0)> então
+                se < tecla <span style="color:red">[h]</span> pressionada? > então
+                    vá para x: (170) y: <span style="color:red">(-50)</span>
+                fim
+                se < tecla <span style="color:red">[j]</span> pressionada? > então
+                    vá para x: (170) y: <span style="color:red">(-50)</span>
+                fim
+            fim
+        fim
+
+
+    quando eu receber [verificar respostas]
+        se <(pergunta) = (1)> então
+            se < tocando em [verdadeiro] ? > então
+                adicione (1) a <span style="color:red">[p2]</span>
+            fim
+        fim
+        se <(pergunta) = (2)> então
+            se < tocando em [falso] ?>  então
+                adicione (1) a <span style="color:red">[p2]</span>
+            fim
+        fim
+        se <(pergunta) = (3)> então
+            se < tocando em [falso] ? > então
+                adicione (1) a <span style="color:red">[p2]</span>
+            fim
+        fim
+</pre>
+
+<div class="bloco">
+    <h2>🟡Player 3(P3) e 🟢Player 4(P4)</h2>
+</div>
+<h3>Tente fazer sem ajuda os outros jogadores, lembre de mudar as posições y e os botões que controlam os jogadores.</h3>
+
+<div class="bloco">
+    <h2>Pergunta</h2>
+</div>
+
+<pre>
+    quando [bandeira verde] for clicado
+        mude [pergunta] para (1)
+        transmita [início]
+        esconda a variável [p1]
+        esconda a variável [p2]
+        esconda a variável [p3]
+        esconda a variável [p4]
+        sempre
+            se <(pergunta) = (11)> então
+                transmita [esconda]
+                esconda a variável [tempo]
+                mude para a fantasia [fantasia11]
+                mostre a variável [p1]
+                mostre a variável [p2]
+                mostre a variável [p3]
+                mostre a variável [p4]
+                pare [todos os scripts]
+            fim
+        fim
+    fim
+
+
+    quando eu receber [inicio]
+        mude [tempo] para (10)
+        mostre a variável [tempo]
+        sempre
+            mude para a fantasia [pergunta]
+            se <(pergunta) < (11)> então
+                adicione (-1) a [tempo]
+                espere (1) segundos
+            fim
+            se <(tempo) = [0]> então
+                transmita [pergunta+1]
+                pare [este script]
+            fim
+        fim
+    fim
+
+
+    quando eu receber [pergunta+1]
+        transmita [verificar respostas]
+        espere (2) segundos
+        adicione (1) a [pergunta]
+        transmita [inicio]
+</pre>
+
+  <div class="bt">
+    <button class="voltar">
+      <a href="./jogo9.html">Voltar</a>
+  </button>
+    <!-- <button class="avancar">
+      <a href="./jogo11.html">Avançar</a>
+  </button> -->
+  </div>
+  <script src="./script.js"></script>
+
+</body>
+</html>
