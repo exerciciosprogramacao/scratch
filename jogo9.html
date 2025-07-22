@@ -27,101 +27,41 @@
     <p class="explicacao">‼️ <b>Tentativas</b> é uma variável</p>
     <p class="explicacao">‼️ <b>numero</b> é uma variável</p>
   <pre>
-    quando [bandeira verde] for clicado
-        defina o tamanho como (70) %
-        vá para x: (46) y: (-11)
-        mude [Tentativas] para (0)
-        mude [numero] para (número aleatório entre (1) e (100))
-        mude para a fantasia [i2]
-        diga [Olá! Eu sou o Clippy!] por (3) segundos
-        diga [E tenho um jogo para a gente.] por (3) segundos
-        mude para a fantasia [i1]
-        diga [Estou pensando em um número!] por (3) segundos
-        mude para a fantasia [i2]
-        diga [De 1 a 100!] por (3) segundos
-        diga [Tente acertar.] por (3) segundos
-        transmita [animação]
-        pergunte [Qual será o número que eu escolhi?] e espere
-        adicione (1) a [Tentativas]
+    quando eu receber [início]
+        vá para a camada [frente]
+        vá para x: (0) y: (0)
         sempre
-            se < não <(resposta) = (numero)> > então
-                pare [outros scripts no ator]
-
-                se <(resposta) > (numero)> então
-                    mude para a fantasia [i2]
-                    diga [Errou!] por (2) segundos
-                    mude para a fantasia [i1]
-                    diga [Acho que meu número é menor.] por (4) segundos
-                    transmita [animação]
-                    pergunte [Qual será o número que eu escolhi?] e espere
-                    adicione (1) a [Tentativas]
+            se <(tempo) > (0)> então
+                se < tecla [a] pressionada? > então
+                    vá para x: (170) y: (0)
                 fim
-
-                se <(resposta) < (numero)> então
-                    mude para a fantasia [i2]
-                    diga [Errou!] por (2) segundos
-                    mude para a fantasia [i1]
-                    diga [Acho que meu número é maior.] por (4) segundos
-                    transmita [animação]
-                    pergunte [Qual será o número que eu escolhi?] e espere
-                    adicione (1) a [Tentativas]
-                fim
-            fim
-
-            se <(resposta) = (numero)> então
-                pare [outros scripts no ator]
-                mude para a fantasia [i2]
-                diga [ACERTOU!!] por (2) segundos
-                mude para a fantasia [i1]
-
-                sempre
-                    diga ( junte ( junte [E só precisou de ] (Tentativas) ) [ tentativas!] )
+                se < tecla [s] pressionada? > então
+                    vá para x: (170) y: (0)
                 fim
             fim
         fim
     fim
 
 
-    quando eu receber [animação]
-        mude para a fantasia [?1]
+    quando [bandeira verde] for clicado
+        mostre
+        mude [p1] para (0)
+        vá para x: (0) y: (0)
+        defina o tamanho como (55) %
         sempre
-            repita (7) vezes
-                próxima fantasia
-                espere (0.2) seg
-                mude para a fantasia [?1]
-            fim
+            mude (5) no tamanho
+            espere (0.1) segundos
+            mude (-5) no tamanho
+            espere (0.1) segundos
         fim
+    fim
+
+
+    quando eu receber [esconda]
+        esconda
     fim
   </pre>
-<p>🎮 Este projeto é um jogo de adivinhação feito no Scratch, com um personagem que pensa em um número de 1 a 100 e desafia o jogador a descobrir qual é!</p>
 
-<p>🟢 <strong>Início do jogo:</strong></p>
-<ul>
-  <li>🖼️ O personagem é posicionado e redimensionado.</li>
-  <li>🔢 A variável "Tentativas" é zerada e o número secreto (entre 1 e 100) é sorteado aleatoriamente.</li>
-  <li>💬 O personagem se apresenta e explica as regras do jogo.</li>
-  <li>📢 Uma transmissão de "animação" é feita para dar início à interação.</li>
-  <li>❓ O jogador é perguntado: "Qual será o número que eu escolhi?"</li>
-</ul>
-
-<p>🔁 <strong>Durante o jogo (repetição):</strong></p>
-<ul>
-  <li>📥 O jogador digita um número.</li>
-  <li>❌ Se a resposta estiver errada:
-    <ul>
-      <li>⬆️ Se o número digitado for maior que o correto, o personagem diz: "Meu número é menor."</li>
-      <li>⬇️ Se for menor que o correto, ele diz: "Meu número é maior."</li>
-      <li>📊 A variável "Tentativas" é aumentada em 1 a cada tentativa.</li>
-    </ul>
-  </li>
-</ul>
-
-<p>✅ <strong>Quando o jogador acerta:</strong></p>
-<ul>
-  <li>🎉 O personagem diz "ACERTOU!!"</li>
-  <li>📢 Os outros scripts param para encerrar o jogo.</li>
-  <li>📣 O personagem exibe quantas tentativas foram necessárias usando a variável "Tentativas".</li>
-</ul>
  
   <div class="bt">
     <button class="voltar">
