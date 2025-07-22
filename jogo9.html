@@ -32,12 +32,12 @@
         vá para x: (46) y: (-11)
         mude [Tentativas] para (0)
         mude [numero] para (número aleatório entre (1) e (100))
-        mude para a fantasia [i2]
+        mude para a fantasia [!2]
         diga [Olá! Eu sou o Clippy!] por (3) segundos
         diga [E tenho um jogo para a gente.] por (3) segundos
-        mude para a fantasia [i1]
+        mude para a fantasia [!1]
         diga [Estou pensando em um número!] por (3) segundos
-        mude para a fantasia [i2]
+        mude para a fantasia [!2]
         diga [De 1 a 100!] por (3) segundos
         diga [Tente acertar.] por (3) segundos
         transmita [animação]
@@ -48,9 +48,9 @@
                 pare [outros scripts no ator]
 
                 se <(resposta) > (numero)> então
-                    mude para a fantasia [i2]
+                    mude para a fantasia [!2]
                     diga [Errou!] por (2) segundos
-                    mude para a fantasia [i1]
+                    mude para a fantasia [!1]
                     diga [Acho que meu número é menor.] por (4) segundos
                     transmita [animação]
                     pergunte [Qual será o número que eu escolhi?] e espere
@@ -58,9 +58,9 @@
                 fim
 
                 se <(resposta) < (numero)> então
-                    mude para a fantasia [i2]
+                    mude para a fantasia [!2]
                     diga [Errou!] por (2) segundos
-                    mude para a fantasia [i1]
+                    mude para a fantasia [!1]
                     diga [Acho que meu número é maior.] por (4) segundos
                     transmita [animação]
                     pergunte [Qual será o número que eu escolhi?] e espere
@@ -70,9 +70,9 @@
 
             se <(resposta) = (numero)> então
                 pare [outros scripts no ator]
-                mude para a fantasia [i2]
+                mude para a fantasia [!2]
                 diga [ACERTOU!!] por (2) segundos
-                mude para a fantasia [i1]
+                mude para a fantasia [!1]
 
                 sempre
                     diga ( junte ( junte [E só precisou de ] (Tentativas) ) [ tentativas!] )
