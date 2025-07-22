@@ -122,143 +122,111 @@
   <p class="explicacao">‼️ <b>Meteoro Destruídos</b> é uma variável</p>
   <pre>
     quando [bandeira verde] for clicado
-    vá para x: (36) y: (-86)
-    sempre
-      próxima fantasia
-      vá para [p2 run]
-      aponte para a direção (direção p2)
-      se <(tecla [j] pressionada?) ou <(tecla [i] pressionada?)> então
-        esconda
-      senão
-        mostre
+      mude para a fantasia (1)
+      defina o tamanho como (15)%
+      esconda
+      sempre
+        espere (número aleatório entre (0.5) e (1.5)) seg
+        crie clone de [este ator]
       fim
-      se <tocando em [inimigo]> então
-        esconda
-        transmita [p1 win]
-        pare [todos]
+    fim
+
+
+    quando eu receber [game over]
+      esconda
+      pare [outros scripts no ator]
+    fim
+
+
+    quando eu começar como um clone
+      mostre
+      mude [lado] para (número aleatório entre (1) e (4))
+      se <(lado) = (1)> então
+        vá para x: (número aleatório entre (-230) e (230)) y: (170)
+      se <(lado) = (2)> então
+        vá para x: (-230) y: (número aleatório entre (-170) e (170))
+      se <(lado) = (3)> então
+        vá para x: (230) y: (número aleatório entre (-170) e (170))
+      se <(lado) = (4)> então
+        vá para x: (número aleatório entre (-230) e (230)) y: (-170)
+      aponte para [nave]
+      sempre
+          mova (2) passos
+          se tocar na borda volte
+          se <tocando em [laser]> então
+            toque o som [explosão]
+            adicione (1) a [Meteoros destruídos]
+            repita (8) vezes
+              próxima fantasia
+            apague este clone
+          fim
       fim
     fim
   </pre>
-  <p class="explicacao">👉 O personagem P2 idle é o personagem que fica parado, mas com a animação de respiração.</p>
-  <p class="explicacao">👉 Ele só fica visível quando não está se movendo.</p>
-  <p class="explicacao">👉 Se ele tocar no inimigo, ele se esconde e transmite a mensagem de que o P1 ganhou.</p>
-  <div class="bloco">
-    <h2>🟢 p2 run</h2>
-    <pre>
-      quando [bandeira verde] for clicado
-      vá para x: (36) y: (-86)
-      sempre
-        próxima fantasia
-        aponte para a direção (direção p2)
-        se <(tecla [j] pressionada?) ou <(tecla [l] pressionada?)> então
-          mostre
-        senão
-          esconda
-        fim
-        se <tocando em [inimigo]> então
-          esconda
-          transmita [p1 win]
-          pare [todos]
-        fim
-      fim
-
-      quando [bandeira verde] for clicado
-      sempre
-      se < tecla [l] pressionada? > então
-        mude [direção p2] para 90
-        adicione 8 a x
-      fim
-      se < tecla [j] pressionada? > então
-        mude [direção p2] para -90
-        adicione -8 a x
-      fim
-      se tocar na borda, volte
-    </pre>
-    <p class="explicacao">👉 O personagem P2 run é o personagem que corre, com a animação de corrida.</p>
-    <p class="explicacao">👉 Ele só fica visível quando está se movendo.</p>
-    <p class="explicacao">👉 Se ele tocar no inimigo, ele se esconde e transmite a mensagem de que o P1 ganhou.</p>
-    <p class="explicacao">👉 A direção do personagem é controlada pelas teclas "L" e "J".</p>
-    <p class="explicacao">👉 Se ele tocar na borda, ele volta.</p>
-  </div>
+    <p class="explicacao">👉 O personagem meteoro principal fica escondido, mas cria clones de tempos em tempos entre 0.5 e 1.5 segundos.</p>
+    <p class="explicacao">👉 Esses clones aparecem em posições aleatórias nas bordas da tela e apontam para a nave do jogador.</p>
+    <p class="explicacao">👉 Cada meteoro se move continuamente em direção à nave.</p>
+    <p class="explicacao">👉 Se tocar no laser, o meteoro toca um som de explosão, aumenta a pontuação e roda uma pequena animação antes de desaparecer.</p>
+    <p class="explicacao">👉 Se o jogo acabar, o meteoro principal se esconde e para seus scripts.</p>
 
   <div class="bloco">
-    <h2>🪨 inimigo</h2>
+    <h2>🔚 Programação do Game over</h2>
     <pre>
-      quando [bandeira verde] for clicado
+    quando eu começar como um clone
       mostre
-      vá para x: -208 y: 81
-      repita (9) vezes
-        crie clone de [este ator]
-        adicione (46) a x
-      fim
-
-
-      quando eu começar como um clone
+      mude [lado v] para (número aleatório entre (1) e (4))    
+      se <(lado) = (1)> então
+        vá para x: (número aleatório entre (-230) e (230)) y: (170)    
+      se <(lado) = (2)> então
+        vá para x: (-230) y: (número aleatório entre (-170) e (170))    
+      se <(lado) = (3)> então
+        vá para x: (230) y: (número aleatório entre (-170) e (170))    
+      se <(lado) = (4)> então
+        vá para x: (número aleatório entre (-230) e (230)) y: (-170)    
+      aponte para [nave v]    
       sempre
-        repita (4) vezes
-          próxima fantasia
-          espere (0.3) segundos
+        mova (2) passos
+        se <tocando em [laser v]> então
+          toque o som [explosão v]
+          adicione (1) a [Meteoros destruídos v]
+          repita (8) vezes
+            próxima fantasia
+          apague este clone
         fim
-        espere (número aleatório entre [3] e [7]) segundos
       fim
 
-
-      quando eu começar como um clone
-      sempre
-        espere (número aleatório entre [3] e [10]) segundos
-        delize por (1) seg até x: (posição x) y: [(posição y) - (160)]
-        espere (0.5) segundos
-        delize por (1) seg até x: (posição x) y: [(posição y) + (160)]
-      fim
-
-
-      quando eu receber [p1 win]
-        esconda
-      fim
-
-
-      quando eu receber [p2 win]
-        esconda
-      fim
     </pre>
-    <p class="explicacao">👉 O inimigo é o personagem que esmaga os jogadores.</p>
-    <p class="explicacao">👉 Ele aparece na parte superior da tela e desce até a parte inferior.</p>
-    <p class="explicacao">👉 Ele é clonado várias vezes para criar vários inimigos.</p>
-    <p class="explicacao">👉 Ele se move aleatoriamente para baixo e para cima.</p>
-    <p class="explicacao">👉 Se ele tocar no P1, o P2 ganha, e vice-versa.</p>
+      <p>🚀 Este script define o comportamento de um meteoro quando ele aparece como um clone.</p>
+      <p>👉 Ele aparece em uma das 4 bordas da tela, escolhida aleatoriamente, e aponta para a nave do jogador.</p>
+      <p>👉 Em seguida, começa a se mover continuamente em direção à nave.</p>
+      <p>👉 Se for atingido por um laser, ele toca um som de explosão, aumenta a contagem de meteoros destruídos, troca rapidamente de fantasia (para criar o efeito da explosão) e então desaparece (clone apagado).</p>
   </div>
+
 
   <div class="bloco">
     <h2>🎵 Cenário</h2>
     <pre>
-      quando [bandeira verde] for clicado
-        mude o cenario para [game]
-        sempre
-          toque o som [three red hearts - box jump] até o fim
-        fim
+    quando [bandeira verde] for clicado
+      mude para o cenário [espaço]
+      sempre
+        toque o som [Three Red Hearts - Go (No Vocal)] até o fim
 
+    quando eu receber [game over]
+        pare [outros scripts no ator]
 
-        quando eu receber [p1 win]
-          mude o cenario para [p1 win]
-        fim
-
-
-        quando eu receber [p2 win]
-          mude o cenario para [p2 win]
-        fim
     </pre>
     <p class="explicacao">👉 O cenário é o fundo do jogo.</p>
-    <p class="explicacao">👉 Ele muda para o cenário de vitória quando um dos jogadores ganha.</p>
-    <p class="explicacao">👉 O som "three red hearts - box jump" é tocado durante o jogo.</p>
+    <p class="explicacao">👉 Ele para os scripts quando perde o jogo.</p>
+    <p class="explicacao">👉 O som é tocado durante o jogo.</p>
 
   </div>
  
   <div class="bt">
     <button class="voltar">
-      <a href="./jogo6.html">Voltar</a>
+      <a href="./jogo7.html">Voltar</a>
   </button>
     <!-- <button class="avancar">
-      <a href="./jogo8.html">Avançar</a>
+      <a href="./jogo9.html">Avançar</a>
   </button> -->
   </div>
   <script src="./script.js"></script>
