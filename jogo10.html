@@ -137,6 +137,11 @@
             <li>Receber "esconda" → personagem desaparece</li>
         </ul>
     </li>
+     <li>‼️<strong>Somente 3 perguntas?</strong>‼️
+        <ul>
+            <li>O jogo foi feito para ter <strong>10 perguntas</strong>, você pode escolher se quer mudar as que estão prontas ou fazer as suas. Para isso é necessario continuar a programação que verifica se a pergunta foi respondida corretamente no código <strong>quando eu receber [verificar respostas]</strong>.</li>
+        </ul>
+    </li>
 </ul>
   
 <div class="bloco">
@@ -201,6 +206,7 @@
         fim
 </pre>
 
+
 <div class="bloco">
     <h2>🟡Player 3(P3) e 🟢Player 4(P4)</h2>
 </div>
@@ -256,6 +262,33 @@
         adicione (1) a [pergunta]
         transmita [inicio]
 </pre>
+    <p><strong>🟢 Início (bandeira verde):</strong></p>
+    <ul>
+    <li>Configura pergunta inicial (1)</li>
+    <li>Esconde todas as pontuações (p1, p2, p3, p4)</li>
+    <li>Verifica constantemente se chegou na pergunta 11 para mostrar resultados</li>
+    </ul>
+
+    <p><strong>⏳ Temporizador:</strong></p>
+    <ul>
+    <li>Inicia contagem regressiva de 10 segundos por pergunta</li>
+    <li>Muda a aparência para cada pergunta</li>
+    <li>Avança automaticamente quando o tempo acaba</li>
+    </ul>
+
+    <p><strong>🔄 Transição entre Perguntas:</strong></p>
+    <ul>
+    <li>Verifica respostas antes de mudar</li>
+    <li>Adiciona 2 segundos de pausa entre perguntas</li>
+    <li>Incrementa o número da pergunta automaticamente</li>
+    </ul>
+
+    <p><strong>🏆 Finalização:</strong></p>
+    <ul>
+    <li>Na pergunta 11, revela todas as pontuações</li>
+    <li>Mostra tela final (fantasia11)</li>
+    <li>Encerra todo o jogo</li>
+    </ul>
 
   <div class="bt">
     <button class="voltar">
