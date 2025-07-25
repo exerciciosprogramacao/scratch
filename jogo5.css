@@ -30,7 +30,7 @@ body.dark a {
 
 .btt{
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 /* --------------------------------------------------    */
     

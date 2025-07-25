@@ -59,10 +59,13 @@ pre {
   font-style: italic;
 }
 
-
 .bt{
+  display: flex;
+  justify-content: flex-end;
+}
+.btt{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 .avancar, .voltar{
     background-color: #f7f7f7;
