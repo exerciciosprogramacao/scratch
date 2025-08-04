@@ -39,6 +39,7 @@ esconda
   </div>
   <div class="bloco">
     <h2>🎮 Personagem - Controle com setas</h2>
+    <p class="explicacao">👉 [labirinto] é uma variáveis.</p>
     <pre>
 quando [bandeira verde] for clicado
 sempre
@@ -81,20 +82,20 @@ sempre
 fim
 
 quando [bandeira verde] for clicado
-mude [labirinto 1] para (1)
+mude [labirinto] para (1)
 sempre
     se &lt;&lt;tocando em [ghost]?&gt; e &lt;(labirinto1) = [1]&gt;&gt; então
-        adicione (1) a [labirinto 1]
+        adicione (1) a [labirinto]
         transmita [2]
         vá para x: (13) y: (-170)
     fim
     se &lt;&lt;tocando em [ghost]?&gt; e &lt;(labirinto1) = [2]&gt;&gt; então
-        adicione (1) a [labirinto 1]
+        adicione (1) a [labirinto]
         transmita [3]
         vá para x: (13) y: (-170)
     fim
     se &lt;&lt;tocando em [ghost]?&gt; e &lt;(labirinto1) = [3]&gt;&gt; então
-        adicione (1) a [labirinto 1]
+        adicione (1) a [labirinto]
         transmita [4]
         vá para x: (13) y: (-170)
     fim
@@ -104,7 +105,7 @@ sempre
     fim
 fim
     </pre>
-    <p class="explicacao">👉 Labirinto 1 é uma variável.</p>
+    <p class="explicacao">👉 labirinto é uma variável.</p>
     <p class="explicacao">👉 Movimenta o personagem pelas setas e verifica se ele está batendo nas paredes.</p>
     <p class="explicacao">👉 Verifica se está tocando no fantasma e em qual cenário está, para mudar de mapa.</p>
     <p class="explicacao">👉 Faz o personagem ficar animado.</p>
