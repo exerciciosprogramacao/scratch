@@ -21,7 +21,7 @@
   <div class="bloco">
     <h2>Sprites</h2>
     <pre>
-        <a href="./sprites/Arquivos do jogo10.zip">Clique Aqui para baixar os aquivos do jogo</a>
+        <a href="./sprites/">Clique Aqui para baixar os aquivos do jogo</a>
     </pre> 
   </div>
   <div class="bloco">
@@ -32,8 +32,109 @@
 </div>
 
   <div class="bloco">
- 
+    <h2>Ator - Pokemons com animação</h2>
+ <img src="./img/jogo11 pokedex/pokemonAnimado.png" alt="">
+ <p class="explicacao">👉 Quando a <strong>bandeira verde</strong> é clicada, o personagem é posicionado nas coordenadas <strong>x: 0</strong> e <strong>y: -50</strong>.</p>
+<p class="explicacao">👉 O tamanho do personagem é ajustado para <strong>200%</strong>, deixando-o duas vezes maior que o normal.</p>
+<p class="explicacao">👉 Em um loop infinito, o personagem troca constantemente para a <strong>próxima fantasia</strong>, criando um efeito de animação.</p>
+<p class="explicacao">👉 A cada troca de fantasia, o programa espera <strong>0.03 segundos</strong> antes de continuar, controlando a velocidade da animação.</p>
+<p class="explicacao">👉 Se a variável <strong>NumeroPokemon</strong> for igual a <strong>1</strong>, o personagem é exibido (<em>mostre</em>); caso contrário, ele fica invisível (<em>esconda</em>).</p>
+<p class="explicacao">👉 Quando o personagem recebe a mensagem <em>“qualé”</em>, ele se <strong>esconde</strong> e o script é <strong>interrompido</strong>, parando todas as ações relacionadas a esse ator.</p>
+<p class="explicacao">🎮 Em resumo: este código faz o personagem animar suas fantasias, aparecer apenas quando <strong>NumeroPokemon = 1</strong> e se esconder ao receber uma mensagem específica.</p>
 
+<h2>Atores - Voltar e Avançar</h2>
+<img src="./img/jogo11 pokedex/Voltar.png" alt="">
+<img src="./img/jogo11 pokedex/Avançar.png" alt="">
+
+<p class="explicacao">👉 Os botões <strong>Voltar</strong> e <strong>Avançar</strong> controlam a variável <strong>NumeroPokemon</strong>, permitindo alternar entre os Pokémons exibidos na tela.</p>
+<ul class="explicacao">
+  <li>🔹 O botão <strong>Avançar</strong> <em>adiciona +1</em> à variável <strong>NumeroPokemon</strong>.</li>
+  <li>🔹 O botão <strong>Voltar</strong> <em>subtrai -1</em> da variável <strong>NumeroPokemon</strong>.</li>
+</ul>
+<p class="explicacao">👉 Ao serem clicados, ambos mudam temporariamente para a <em>fantasia 2</em>, esperam <strong>0.1 segundo</strong> e retornam para a <em>fantasia 1</em>, criando um efeito visual de “clique”.</p>
+<p class="explicacao">👉 Quando a <strong>bandeira verde</strong> é clicada, os botões aparecem e são posicionados em locais fixos:<br>🟣 <strong>Avançar:</strong> posição <em>(40, -130)</em><br>🟣 <strong>Voltar:</strong> posição <em>(-40, -130)</em></p>
+<p class="explicacao">👉 Quando recebem a mensagem <em>“qualé”</em>, ambos se <strong>escondem</strong> e <strong>param seus scripts</strong>, deixando de funcionar até o jogo reiniciar.</p>
+<p class="explicacao">🎮 Assim, os botões <strong>Voltar</strong> e <strong>Avançar</strong> permitem navegar entre diferentes Pokémons, alterando o número exibido e mostrando apenas o personagem correspondente.</p>
+
+<h2>Ator - Nomes</h2>
+
+<img src="./img/jogo11 pokedex/Nomes1.png" alt="">
+
+<h3>📜 Explicação do Código – Nome do Pokémon Atual</h3>
+
+<p class="explicacao">👉 Este código é responsável por <strong>mostrar o nome do Pokémon</strong> que está selecionado no momento, de acordo com o valor da variável <strong>NumeroPokemon</strong>.</p>
+<p class="explicacao">🔹 <strong>Quando a bandeira verde é clicada</strong>, o ator:</p>
+<ul class="explicacao">
+  <li>Mostra-se na tela (com o bloco <em>“mostre”</em>);</li>
+  <li>Aplica o <strong>efeito fantasma = 100</strong>, o que o torna <em>totalmente invisível</em> (esse ator serve apenas para “pensar” o nome, não para ser visto);</li>
+</ul>
+<p class="explicacao">👉 Em seguida, o bloco <strong>“sempre”</strong> faz com que o código repita suas verificações e atualizações constantemente durante o jogo.</p>
+<p class="explicacao">🔸 <strong>Verificação 1:</strong> Se <em>NumeroPokemon &lt; 1</em>, o código define o valor como <strong>1</strong>.<br>
+Isso evita que o número fique menor que 1 (por exemplo, se o jogador clicar “Voltar” muitas vezes).</p>
+<p class="explicacao">🔸 <strong>Verificação 2:</strong> Se <em>NumeroPokemon &gt; tamanho de ListaPokemon</em>, o valor volta para <strong>1</strong>.<br>
+Assim, o jogador pode navegar de forma circular — ao passar do último Pokémon, ele retorna para o primeiro.</p>
+<p class="explicacao">👉 Por fim, o bloco <strong>“pense item NumeroPokemon de ListaPokemon”</strong> faz o ator <em>mostrar no balão de pensamento</em> o nome do Pokémon atual, que é retirado diretamente da <strong>lista chamada “ListaPokemon”</strong>.</p>
+<p class="explicacao">🎮 <strong>Em resumo:</strong> este código controla a exibição do nome do Pokémon selecionado e garante que o número nunca saia dos limites da lista, criando um sistema de seleção contínuo e sem erros.</p>
+
+
+<img src="./img/jogo11 pokedex/Nomes2.png" alt="">
+<img src="./img/jogo11 pokedex/Nomes3.png" alt="">
+
+<h3>🔢 Configuração da Lista de Pokémons</h3>
+
+<p class="explicacao">👉 <strong>Quando a bandeira verde é clicada:</strong> O programa inicia definindo <code>NumeroPokemon</code> como <strong>1</strong>, garantindo que o primeiro Pokémon da lista seja o padrão inicial.</p>
+<p class="explicacao">👉 Em seguida, todos os itens anteriores da variável tipo <strong>lista</strong> chamada <code>ListaPokemon</code> são apagados, limpando qualquer dado antigo que possa ter ficado de execuções anteriores.</p>
+<p class="explicacao">👉 Logo depois, os nomes dos Pokémons são adicionados novamente à lista, em ordem:</p>
+<p class="explicacao">Bulbasaur, Ivysaur, Venusaur, Charmander, Charmeleon, Charizard, Squirtle, Wartortle e Blastoise.</p>
+<p class="explicacao">👉 Assim, a lista é reconstruída com os 9 Pokémons iniciais, que poderão ser navegados pelos botões de avançar e voltar.</p>
+<h3>🙈 Ocultar o Sprite ao Receber Mensagem</h3>
+<p class="explicacao">👉 <strong>Quando recebe a mensagem “qualé”:</strong> o ator é <strong>escondido</strong> e o comando <code>pare outros scripts no ator</code> é executado.</p>
+<p class="explicacao">👉 Esse comando interrompe qualquer outro bloco que o sprite esteja executando, garantindo que ele realmente desapareça e pare todas as ações anteriores (como animações, movimentos ou efeitos visuais).</p>
+
+<h2>Ator - Qualé</h2>
+<img src="./img/jogo11 pokedex/Qualé.png" alt="">
+
+<p class="explicacao">👉 <strong>Quando a bandeira verde é clicada:</strong> o jogo exibe o ator (botão “Iniciar”) e também mostra a variável <code>NumeroPokemon</code> na tela, permitindo que o jogador veja o número atual do Pokémon selecionado.</p>
+<p class="explicacao">👉 O tamanho do botão é ajustado para <strong>30%</strong> e ele muda para uma fantasia específica, que provavelmente representa o visual do botão de início.</p>
+<p class="explicacao">👉 Dentro do bloco <strong>“sempre”</strong>, o botão executa uma pequena animação:
+repete <strong>4 vezes</strong> a mudança de fantasia com um intervalo de <strong>0.1 segundos</strong>, criando um efeito de brilho ou piscada.
+Depois, espera <strong>4 segundos</strong> antes de repetir o ciclo.</p>
+<p class="explicacao">👉 Isso faz o botão parecer “vivo”, chamando a atenção do jogador com uma leve animação contínua.</p>
+<h3>🖱️ Ao clicar no botão</h3>
+<p class="explicacao">👉 Quando o jogador clica nesse botão, ele é <strong>escondido</strong> da tela, e o programa <strong>transmite a mensagem “qualé”</strong> para que outros atores saibam que o jogo deve continuar (por exemplo, esconder menus ou mostrar o Pokémon escolhido).</p>
+<p class="explicacao">👉 Em seguida, o código muda o <strong>cenário para “qualé”</strong> (que provavelmente é o cenário principal do jogo) e esconde a variável <code>NumeroPokemon</code> para deixar a interface mais limpa.</p>
+<p class="explicacao">👉 Assim, o botão de iniciar funciona como uma transição entre o menu inicial e o início do jogo, além de enviar um sinal para os outros scripts começarem suas ações.</p>
+
+
+<h2>Jogo - Qual é este Pokémon?</h2>
+
+<img src="./img/jogo11 pokedex/jogo1.png" alt="">
+<p clas="explicacao">👉 <strong>Quando a bandeira verde é clicada:</strong> o ator é <strong>escondido</strong>, garantindo que ele não apareça visualmente no início do jogo. Esse ator funciona apenas como parte lógica do sistema, não como um personagem visível.</p>
+<p class="explicacao">👉 <strong>Quando o ator recebe a mensagem “qualé”:</strong> ele <strong>transmite a mensagem “pergunta”</strong>. Isso cria uma sequência de comunicação entre os scripts — primeiro o jogo envia <em>“qualé”</em>, depois esse ator repassa <em>“pergunta”</em> para continuar o fluxo.</p>
+<p class="explicacao">👉 Essa técnica é muito usada no Scratch para <strong>organizar a ordem dos eventos</strong> no jogo, garantindo que cada parte só execute sua função no momento certo. Aqui, por exemplo, o código ajuda a sincronizar a troca de tela e o início da fase de perguntas.</p>
+
+<img src="./img/jogo11 pokedex/Jogo2.png" alt="">
+<h3>🔍 Explicação detalhada (Parte 1/2)</h3>
+
+<p class="explicacao">👉 Quando o ator <strong>recebe a mensagem "pergunta"</strong>, ele começa escolhendo um Pokémon aleatório:
+<strong>NumeroPokemon</strong> recebe um número aleatório entre <em>1</em> e o tamanho da lista <strong>ListaPokemon</strong>.</p>
+<p class="explicacao">👉 Em seguida o ator muda sua <strong>fantasia</strong> para a que corresponde a esse número (ou seja, as fantasias devem estar na mesma ordem da lista).</p>
+<p class="explicacao">👉 Para criar um efeito de “sombra”/revelação, o ator aplica <strong>efeito brilho = -100</strong> (fica escuro/invisível) e então <strong>mostra</strong> o sprite.</p>
+<p class="explicacao">👉 O ator é posicionado em <strong>x: -88</strong>, <strong>y: -3</strong> e o tamanho é definido para <strong>250%</strong> — isso coloca e aumenta o sprite para que o jogador veja claramente.</p>
+<p class="explicacao">👉 O jogo pergunta ao jogador: <em>"Qual é esse Pokémon?"</em> e espera a resposta.</p>
+<p class="explicacao">👉 <strong>Se a resposta estiver correta</strong> (resposta = item NumeroPokemon de ListaPokemon):</p>
+<ul class="explicacao">
+  <li>O ator diz <strong>"Acertou!!!"</strong>.</li>
+  <li>Executa um efeito de “aparecer” aumentando o brilho: <strong>repita 10 vezes → mude 10 ao efeito brilho</strong>. (Isso faz o sprite passar de -100 até 0 aos poucos.)</li>
+  <li>Espera <strong>3 segundos</strong> e então <strong>transmite "pergunta"</strong> para sortear o próximo Pokémon — ou seja, segue perguntando em loop.</li>
+</ul>
+<p class="explicacao">👉 Observação importante: o comando <strong>mude para a fantasia NumeroPokemon</strong> funciona corretamente somente se as fantasias (costumes) estiverem organizadas na mesma ordem dos nomes dentro de <strong>ListaPokemon</strong>.</p>
+<hr>
+
+<img src="./img/jogo11 pokedex/Jogo3.png" alt="">
+
+<h2>Cenário</h2>
+<img src="./img/jogo11 pokedex/Palco.png" alt="">
   <div class="bt">
     <button class="voltar">
       <a href="./jogo10.html">Voltar</a>
